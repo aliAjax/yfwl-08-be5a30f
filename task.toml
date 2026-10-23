@@ -1,0 +1,27 @@
+schema_version = "1.3"
+
+[task]
+name = "local/unlabeled-walsh-sparse-recovery"
+description = "从未标号二维 Walsh-Hadamard 频谱和聚合校验恢复稀疏矩阵、轴置换与符号相位"
+authors = [{ name = "batch-b" }]
+keywords = ["mathematics", "walsh-hadamard", "sparse-recovery", "pytest"]
+
+[agent]
+timeout_sec = 3600
+
+[environment]
+build_timeout_sec = 600
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier]
+timeout_sec = 180
+
+[metadata]
+difficulty = "expert"
+category = "mathematics"
+tags = ["hadamard-transform", "sparse-inverse", "gf2", "atomic-write"]
+expert_time_estimate = "70m"

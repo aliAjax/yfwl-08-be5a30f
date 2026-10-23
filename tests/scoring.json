@@ -1,0 +1,185 @@
+{
+  "gate_tests": [
+    "test_outputs.py::test_recovers_global_sparse_matrix",
+    "test_outputs.py::test_recovers_canonical_row_signs",
+    "test_outputs.py::test_recovers_canonical_column_signs"
+  ],
+  "schema_version": 1,
+  "tests": {
+    "test_outputs.py::test_accepts_full_twelve_sparsity_limit": {
+      "priority": "core",
+      "rationale": "`axis_checks` 字段固定为：；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_case_identifier_is_preserved": {
+      "priority": "recovery",
+      "rationale": "test case identifier is preserved；这验证失败、重跑或恢复不变量，失败会造成旧数据和台账不一致。",
+      "weight": 0.022
+    },
+    "test_outputs.py::test_duplicate_json_key_is_rejected": {
+      "priority": "boundary",
+      "rationale": "test duplicate json key is rejected；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_emits_exact_result_schema": {
+      "priority": "schema",
+      "rationale": "test emits exact result schema；这验证结构、类型或序列化外观，失败会使下游无法稳定消费结果。",
+      "weight": 0.013
+    },
+    "test_outputs.py::test_install_failure_preserves_directory_and_ledger": {
+      "priority": "recovery",
+      "rationale": "test install failure preserves directory and ledger；这验证失败、重跑或恢复不变量，失败会造成旧数据和台账不一致。",
+      "weight": 0.022
+    },
+    "test_outputs.py::test_invalid_ticket_preserves_previous_bytes": {
+      "priority": "recovery",
+      "rationale": "test invalid ticket preserves previous bytes；这验证失败、重跑或恢复不变量，失败会造成旧数据和台账不一致。",
+      "weight": 0.022
+    },
+    "test_outputs.py::test_ledger_has_exact_keys_and_result_digest": {
+      "priority": "recovery",
+      "rationale": "test ledger has exact keys and result digest；这验证失败、重跑或恢复不变量，失败会造成旧数据和台账不一致。",
+      "weight": 0.022
+    },
+    "test_outputs.py::test_malformed_ledger_preserves_output": {
+      "priority": "recovery",
+      "rationale": "test malformed ledger preserves output；这验证失败、重跑或恢复不变量，失败会造成旧数据和台账不一致。",
+      "weight": 0.022
+    },
+    "test_outputs.py::test_new_ticket_appends_record": {
+      "priority": "supporting",
+      "rationale": "test new ticket appends record；这补充验证外围业务约束，失败会降低交付完整性和可运维性。",
+      "weight": 0.009
+    },
+    "test_outputs.py::test_recovers_first_frame_permutations": {
+      "priority": "core",
+      "rationale": "频谱矩阵的元素位置仍然固定，系数行和系数列则在采集阶段被未知置换与符号相位改写。；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_recovers_second_frame_permutations": {
+      "priority": "core",
+      "rationale": "三张频谱必须对应同一个 8×8 稀疏整数系数矩阵。；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_recovers_third_frame_permutations": {
+      "priority": "core",
+      "rationale": "输入的根对象只允许：；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_rejects_axis_energy_tie": {
+      "priority": "core",
+      "rationale": "根字段固定为：；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_rejects_boolean_spectrum_value": {
+      "priority": "boundary",
+      "rationale": "结果 JSON 不插空格，键按字母序，末尾只有一个换行。；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_duplicate_frame_id": {
+      "priority": "boundary",
+      "rationale": "规定每个分量内最小行号的 `row_signs` 必须为 `1`，从而全局也有 `row_signs[0]=1`。；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_extra_axis_check_key": {
+      "priority": "boundary",
+      "rationale": "test rejects extra axis check key；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_extra_frame_key": {
+      "priority": "boundary",
+      "rationale": "两个数组都必须是 `0` 至 `7` 的排列。；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_fourth_frame": {
+      "priority": "boundary",
+      "rationale": "test rejects fourth frame；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_global_support_disagreement": {
+      "priority": "core",
+      "rationale": "三帧逆变换得到的绝对值支撑必须完全相同，规范化后的支持权重之和就是全局支持度。；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_rejects_inconsistent_energy_moments": {
+      "priority": "core",
+      "rationale": "八个行能量必须互异，八个列能量也必须互异。；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_rejects_inconsistent_sign_parities": {
+      "priority": "core",
+      "rationale": "每个奇偶值只能是整数 `0` 或 `1`。；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_rejects_missing_frame": {
+      "priority": "boundary",
+      "rationale": "test rejects missing frame；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_missing_limits_key": {
+      "priority": "boundary",
+      "rationale": "元素字段固定为：；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_nonbinary_sign_parity": {
+      "priority": "boundary",
+      "rationale": "test rejects nonbinary sign parity；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_nonintegral_inverse_spectrum": {
+      "priority": "core",
+      "rationale": "`limits` 的字段固定为：；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_rejects_sparsity_thirteen": {
+      "priority": "boundary",
+      "rationale": "字段集合不符时返回状态码 `3`。；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_spectrum_above_limit": {
+      "priority": "boundary",
+      "rationale": "写入账本的校验事件字段限制为：；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_top_level_extra_key": {
+      "priority": "boundary",
+      "rationale": "`matrix` 恰好含 `sparsity` 项，按 `row`、`column` 递增。；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_rejects_wrong_size": {
+      "priority": "boundary",
+      "rationale": "同一票据重复复核只会复用既有账本内容，旧账本字节保持不变。；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    },
+    "test_outputs.py::test_repeating_identical_ticket_does_not_append": {
+      "priority": "recovery",
+      "rationale": "test repeating identical ticket does not append；这验证失败、重跑或恢复不变量，失败会造成旧数据和台账不一致。",
+      "weight": 0.022
+    },
+    "test_outputs.py::test_reports_global_support_score": {
+      "priority": "core",
+      "rationale": "`frames` 的每一项字段固定为：；这是任务的主交付路径，失败意味着核心业务结果不可用。",
+      "weight": 0.06
+    },
+    "test_outputs.py::test_result_is_compact_sorted_json": {
+      "priority": "schema",
+      "rationale": "test result is compact sorted json；这验证结构、类型或序列化外观，失败会使下游无法稳定消费结果。",
+      "weight": 0.013
+    },
+    "test_outputs.py::test_success_path_is_silent": {
+      "priority": "supporting",
+      "rationale": "test success path is silent；这补充验证外围业务约束，失败会降低交付完整性和可运维性。",
+      "weight": 0.009
+    },
+    "test_outputs.py::test_wrong_schema_version_is_rejected": {
+      "priority": "boundary",
+      "rationale": "输出 `frames` 的每一项字段固定为：；这验证公开边界和拒收口径，失败会产生越界输入或错误放行。",
+      "weight": 0.016
+    }
+  },
+  "weight_policy": {
+    "basis": "business_priority",
+    "core_min_share": 0.5,
+    "version": 1
+  }
+}
